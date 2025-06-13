@@ -1,10 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from "./components/app/app"
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from "./components/app/app";
+import { offers } from './mocks/offers'
+import { offersList } from "./mocks/offers-list";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App
+      rentalOffersCount={10}
+      offers={offers}
+      offersList = {offersList} />
+  </StrictMode>
 );

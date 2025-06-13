@@ -13,7 +13,7 @@ type CitiesCardProps = {
     rating: number;
 }
 
-function CitiesCard({ id, title, type, price, previewImage, isPremium, rating }: CitiesCardProps) {
+function FavoriteCard({ id, title, type, price, previewImage, isPremium, rating }: CitiesCardProps) {
     const [, setOfferId] = useState(''); 
     return (
         <article className="cities__card place-card" onMouseOver={() => setOfferId(id)} onMouseOut={() => setOfferId('')}>
@@ -51,4 +51,4 @@ function CitiesCard({ id, title, type, price, previewImage, isPremium, rating }:
     );
 }
 
-export default CitiesCard;
+export default FavoriteCard;
