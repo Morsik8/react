@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
-import { AppRoute } from "../../const";
 
 const StarIcon = () => (
     <svg style={{ display: "none" }}>

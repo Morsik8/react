@@ -1,14 +1,16 @@
 import { CitiesCardList } from "../../components/cities-card-list/cities-card-list";
 import { FavoriteCardList } from "../../components/favorite-card-list/favorite-card-list";
 import { Logo } from "../../components/logo/logo";
+import { MapComp } from "../../components/map-component/map-component";
 import { OffersList } from "../../types/offer";
+import { CityOffer } from '../../types/offer';
 
-type MainPageProps = { 
+type MainPageProps = {
     rentalOffersCount: number;
     offersList: OffersList[];
 }
 
-function MainPage({rentalOffersCount, offersList}: MainPageProps) {
+function MainPage({ rentalOffersCount, offersList }: MainPageProps) {
     return (
         <div className="page page--gray page--main">
             <header className="header">
@@ -96,16 +98,17 @@ function MainPage({rentalOffersCount, offersList}: MainPageProps) {
                                 </ul>
                             </form>
                             <div className="cities__places-list places__list tabs__content">
-                                <CitiesCardList offersList={ offersList } />
+                                <CitiesCardList offersList={offersList} />
                             </div>
                             <div className="cities__places-list places__list tabs__content">
-                            <b className="places__found">Places in favorite</b>
-                                <FavoriteCardList offersList={ offersList } />
+                                <b className="places__found">Places in favorite</b>
+                                <FavoriteCardList offersList={offersList} />
                             </div>
                         </section>
-                        <div className="cities__right-section">
-                            <section className="cities__map map"></section>
-                        </div>
+                        <MapComp
+                            city={offersList.map(offer => offer.city)}
+                            points={offersList.map(offer => offer.location)}
+                        />
                     </div>
                 </div>
             </main>
